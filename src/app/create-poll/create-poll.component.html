@@ -1,0 +1,99 @@
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <h1>Welcome</h1>
+    </div>
+    <div class="col-md-9 register-right">
+      <form #createPollForm="ngForm">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">Create New Poll</h3>
+            <div class="row register-form">
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">Please Enter The Subject for the Poll</label>
+                  <input type="text" class="form-control" name="createPollData.subject"
+                    [(ngModel)]="createPollData.subject" #createPollData.subject="ngModel"
+                    placeholder="Question For the Poll" autocomplete="off"/>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label for="">Please Enter The Options for the Poll</label>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="createPollData.option"
+                    [(ngModel)]="createPollData.option" #createPollData.option="ngModel"
+                    placeholder="Option for the Poll" maxlength=70 autocomplete="off">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="addPollOptionInArray()"
+                      type="button">Add</button>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="createPollData.options.length>0">
+                <div class="col-md-12" *ngFor="let option of createPollData.options; let i = index;">
+                  <div class="input-group mb-3">
+                    <div class="form-control" disabled=true aria-describedby="basic-addon2">{{option | titlecase}}</div>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" (click)="removePollOptionFromArray(i)"
+                        type="button">&times;</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">Choose the Type of Options you want for the poll</label>
+                  <br>
+                  <div class="pretty p-icon p-round p-pulse">
+                    <input type="radio" name="createPollData.optionType"
+                    [(ngModel)]="createPollData.optionType" #createPollData.optionType="ngModel" value="single"/>
+                    <div class="state p-success">
+                      <i class="icon mdi mdi-check"></i>
+                      <label>Single Selection</label>
+                    </div>
+                  </div>
+                  <div class="pretty p-icon p-round p-pulse">
+                    <input type="radio" name="createPollData.optionType"
+                    [(ngModel)]="createPollData.optionType" #createPollData.optionType="ngModel" value="multiple"/>
+                    <div class="state p-success">
+                      <i class="icon mdi mdi-check"></i>
+                      <label>Multiple Selection</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-md-12">
+                <div class="form-group">
+                  <label style="vertical-align: middle;;" for="">Choose background color for the poll</label>
+                  <input type="color" class="form-check-input ml-2" name="favcolor"
+                    name="createPollData.backgroundColor" [(ngModel)]="createPollData.backgroundColor"
+                    #createPollData.backgroundColor="ngModel">
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label style="vertical-align: middle;;" for="">Choose text color for the poll</label>
+                  <input type="color" class="form-check-input ml-2" name="favcolor"
+                    name="createPollData.textColor" [(ngModel)]="createPollData.textColor"
+                    #createPollData.textColor="ngModel">
+                </div>
+              </div> -->
+
+              <div class="col-md-12 text-center">
+                <input type="button" (click)="createPoll()" [disabled]="createPollForm.invalid" class="btnRegister"
+                  value="Create" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

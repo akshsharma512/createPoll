@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.pretty input:checked ~ .state.p-success label:after,
+.pretty.p-toggle .state.p-success label:after {
+background-color: rgb(92, 50, 170) !important;
+}
+
+
+.pretty input:checked ~ .state.p-success-o label:before,
+.pretty.p-toggle .state.p-success-o label:before {
+border-color: rgb(92, 50, 170);
+}
+
+.pretty input:checked ~ .state.p-success-o .icon,
+.pretty input:checked ~ .state.p-success-o .svg,
+.pretty input:checked ~ .state.p-success-o svg,
+.pretty.p-toggle .state.p-success-o .icon,
+.pretty.p-toggle .state.p-success-o .svg,
+.pretty.p-toggle .state.p-success-o svg {
+color: rgb(92, 50, 170);
+stroke: rgb(92, 50, 170);
+}
+
+.pretty.p-default:not(.p-fill) input:checked ~ .state.p-success-o label:after {
+background-color: rgb(92, 50, 170) !important;
+}
+
+.pretty.p-switch input:checked ~ .state.p-success:before {
+border-color: rgb(92, 50, 170);
+}
+
+.pretty.p-switch.p-fill input:checked ~ .state.p-success:before {
+background-color: rgb(92, 50, 170) !important;
+}

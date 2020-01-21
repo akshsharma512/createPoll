@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="poll-head">
+    <h1>View Poll</h1>
+  </div>
+  <div class="pollBox text-center" id="pollBox">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{viewPollData.subject | titlecase}}</h2>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <div *ngFor="let option of viewPollData.options;let i = index;">
+          <div *ngIf="viewPollData.optionType==='single'">
+            <label class="btn btn-sm btn-custom rounded-pill position-relative mb-2 mx-2"
+            [ngClass]="{'active': pollAnswerData.radio===option}">
+                <input type="radio" name="pollAnswerData.radio" id="{{'option' + i}}"
+                [(ngModel)]="pollAnswerData.radio" #pollAnswerData.radio="ngModel" value="{{option}}"
+                       autocomplete="off">  <span class="pl-4 ml-2">{{option}}</span>
+              </label>
+            <!-- <input type="radio" name="radioOption" id="{{'option' + i}}"> {{option}} -->
+          </div>
+          <div *ngIf="viewPollData.optionType==='multiple'">
+            <label class="btn btn-sm btn-custom rounded-pill position-relative mb-2 mx-2">
+                <input type="checkbox"  id="{{'option' + i}}"
+                       autocomplete="off">  <span class="pl-4 ml-2">{{option}}</span>
+              </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

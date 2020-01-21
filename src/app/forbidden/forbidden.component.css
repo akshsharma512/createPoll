@@ -1,0 +1,13 @@
+#forbidden {
+  background: #16b9fe url('../../assets/img/404.jpg') no-repeat center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+#forbidden a {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
